@@ -2,7 +2,7 @@
 import axios from "axios";
 // @ts-ignore
 import { Message } from "@arco-design/web-vue";
-
+axios.defaults.withCredentials = true
 const myAxios = axios.create({
   baseURL: "http://124.70.179.178:8101",
   timeout: 60000,

@@ -2,6 +2,7 @@
   "name": "yudada-frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://124.70.179.178:8101",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

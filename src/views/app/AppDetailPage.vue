@@ -10,53 +10,44 @@
           <p>
             <a-space>
               作者：
-              <div :style="{ display: 'flex', alignItems: 'center' }">
-                <a-avatar
-                  :size="24"
-                  :image-url="data.user?.userAvatar"
-                  :style="{ marginRight: '8px' }"
-                />
-                <a-typography-text
-                  >{{ data.user?.userName ?? "无名" }}
-                </a-typography-text>
-              </div>
-            </a-space>
+          <NewComponent/>
+          </a-space>
           </p>
           <p>
             创建时间：{{ dayjs(data.createTime).format("YYYY-MM-DD HH:mm:ss") }}
           </p>
           <a-space size="medium">
-            <a-button type="primary" :href="`/answer/do/${id}`"
-              >开始答题
+            <a-button type="primary" :href="`/api/answer/do/${id}`"
+            >开始答题
             </a-button>
             <a-button @click="doShare">分享应用</a-button>
             <a-button v-if="isMy" :href="`/add/question/${id}`"
-              >设置题目
+            >设置题目
             </a-button>
             <a-button v-if="isMy" :href="`/add/scoring_result/${id}`"
-              >设置评分
+            >设置评分
             </a-button>
             <a-button v-if="isMy" :href="`/add/app/${id}`">修改应用</a-button>
           </a-space>
         </a-col>
         <a-col flex="320px">
-          <a-image width="100%" :src="data.appIcon" />
+          <a-image width="100%" :src="data.appIcon"/>
         </a-col>
       </a-row>
     </a-card>
-    <ShareModal :link="shareLink" title="应用分享" ref="shareModalRef" />
+    <ShareModal :link="shareLink" title="应用分享" ref="shareModalRef"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, ref, watchEffect, withDefaults } from "vue";
+import {computed, defineProps, ref, watchEffect, withDefaults} from "vue";
 import API from "@/api";
-import { getAppVoByIdUsingGet } from "@/api/appController";
+import {getAppVoByIdUsingGet} from "@/api/appController";
 import message from "@arco-design/web-vue/es/message";
-import { useRouter } from "vue-router";
-import { dayjs } from "@arco-design/web-vue/es/_utils/date";
-import { useLoginUserStore } from "@/store/userStore";
-import { APP_SCORING_STRATEGY_MAP, APP_TYPE_MAP } from "@/constant/app";
+import {useRouter} from "vue-router";
+import {dayjs} from "@arco-design/web-vue/es/_utils/date";
+import {useLoginUserStore} from "@/store/userStore";
+import {APP_SCORING_STRATEGY_MAP, APP_TYPE_MAP} from "@/constant/app";
 import ShareModal from "@/components/ShareModal.vue";
 
 interface Props {
