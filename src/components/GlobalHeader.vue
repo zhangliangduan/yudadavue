@@ -26,7 +26,7 @@
         {{ loginUserStore.loginUser.userName ?? "无名" }}
       </div>
       <div v-else>
-        <a-button type="primary" href="/user/login">登录</a-button>
+        <a-button type="primary" href="#/user/login">登录</a-button>
       </div>
     </a-col>
   </a-row>

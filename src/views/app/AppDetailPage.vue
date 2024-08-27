@@ -17,17 +17,17 @@
             创建时间：{{ dayjs(data.createTime).format("YYYY-MM-DD HH:mm:ss") }}
           </p>
           <a-space size="medium">
-            <a-button type="primary" :href="`/api/answer/do/${id}`"
+            <a-button type="primary" :href="`#/answer/do/${id}`"
             >开始答题
             </a-button>
             <a-button @click="doShare">分享应用</a-button>
-            <a-button v-if="isMy" :href="`/add/question/${id}`"
+            <a-button v-if="isMy" :href="`#/add/question/${id}`"
             >设置题目
             </a-button>
-            <a-button v-if="isMy" :href="`/add/scoring_result/${id}`"
+            <a-button v-if="isMy" :href="`#/add/scoring_result/${id}`"
             >设置评分
             </a-button>
-            <a-button v-if="isMy" :href="`/add/app/${id}`">修改应用</a-button>
+            <a-button v-if="isMy" :href="`#/add/app/${id}`">修改应用</a-button>
           </a-space>
         </a-col>
         <a-col flex="320px">

@@ -39,7 +39,7 @@
           <a-button type="primary" html-type="submit" style="width: 120px">
             注册
           </a-button>
-          <a-link href="/user/login">老用户登录</a-link>
+          <a-link href="#/user/login">老用户登录</a-link>
         </div>
       </a-form-item>
     </a-form>
